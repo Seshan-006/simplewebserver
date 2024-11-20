@@ -26,7 +26,7 @@ content="""
         </tr>
         </table>
     </body>    
-</html>    
+</html>      
 """
 class myhandler(baseHTTPRequesthandler):
     def do_GET(self):

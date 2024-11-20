@@ -22,63 +22,51 @@ Testing the webserver.
 
 ## PROGRAM:
 '''
-from http.server import HTTPServer,BaseHTTPRequestHandler
-content='''
+form http.server import HTTPServer, BaseHTTPRequesthandler
+content="""
+<!doctype html>
 <html>
-<title>top software Industries</title>
-<body>
-<table border ="6" cellspacing="10" cellpadding="8">
-<caption>TOP 5 Revenue Generating Software Companies </caption>
-<tr>
-<th>s.no</th>
-<th>companies</th>
-<th>Revenue</th>
-</tr>
-<tr>
-<th>1</th>
-<th>Microsoft</th>
-<th>65 billon</th>
-</tr>
-<tr>
-<th>2</th>
-<th>orcale</th>
-<th>29.6 billon</th>
-</tr>
-<tr>
-<th>3</th>
-<th>IMB</th>
-<th>29.1 billion</th>
-</tr>
-<tr>
-<th>4</th>
-<th>SAP</th>
-<th>6.4billion</th>
-</tr>
-<tr>
-<th>5</th>
-<th>symentec</th>
-<th>5.6billion</th>    
-</tr>
-</body>
-</html>
-'''
-
-class MyServer(BaseHTTPRequestHandler):
+    <body bgcolor="PURPLE">
+        <table border="5" cellpadding="22" aling="center" bgcolor="cyan">
+            <caption aling="center">LAPTOP CONFIGURATION </caption>
+        
+        <tr bgcolor="blue">
+            <th>S.NO</th><th>SYSTEM CONFIGURATION</th><th>DESCRIPTION</th>
+        </tr>
+        <tr>
+            <th>1</th><th>PROCESSOR</th><th>i5</th>
+        </tr>
+        <tr>
+            <th>2</th><th>PRIMARY MEMORY</th><th>RAM 16GB</th>
+        </tr>
+        <TR>
+            <th>3</th><th>SECONDARY MEMORY</th><th>512 GB</th>
+        </TR>
+        <tr>
+            <th>4</th><th>OS</th><th>WINDOWS 11</th>
+        </tr>
+        <tr>
+            <th>5</th><th>GRAPIC CARD</th><TH>NVIDIA</TH>
+        </tr>
+        </table>
+    </body>    
+</html>      
+"""
+class myhandler(baseHTTPRequesthandler):
     def do_GET(self):
-        print("Get request received...")
-        self.send_response(200) 
-        self.send_header("content-type", "text/html")       
+        print("request recevied")
+        self.send_response(200)
+        self.send_headers('content-type','text/html;charset=utf-8')
         self.end_headers()
         self.wfile.write(content.encode())
-
-print("my webserver is running...") 
-server_address =('',8000)
-httpd = HTTPServer(server_address,MyServer)
-httpd.serve_forever()
+server_address = ('',8000)
+httpd =HTTPServer(server_address,myhandler)
+print("my webserver is running...")
+httod.serve_forever()
 '''
 
 ## OUTPUT:
-![alt text](<Screenshot (9).png>)
+![alt text](<Screenshot (11).png>)
 ![alt text](<Screenshot (10).png>)
 ## RESULT:
 The program for implementing simple webserver is executed successfully.
