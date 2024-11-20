@@ -1,3 +1,5 @@
+form http.server import HTTPServer, BaseHTTPRequesthandler
+content="""
 <!doctype html>
 <html>
     <body bgcolor="PURPLE">
@@ -21,4 +23,19 @@
         </tr>
         <tr>
             <th>5</th><th>GRAPIC CARD</th><TH>NVIDIA</TH>
-            </tr>
+        </tr>
+        </table>
+    </body>    
+</html>    
+"""
+class myhandler(baseHTTPRequesthandler):
+    def do_GET(self):
+        print("request recevied")
+        self.send_response(200)
+        self.send_headers('content-type','text/html;charset=utf-8')
+        self.end_headers()
+        self.wfile.write(content.encode())
+server_address = ('',8000)
+httpd =HTTPServer(server_address,myhandler)
+print("my webserver is running...")
+httod.serve_forever()
